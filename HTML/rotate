@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Flip Card Carousel</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: url('https://images.unsplash.com/photo-1511920170033-8c3c2c3b0c9d') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            width: 100%;
+            top: 0;
+        }
+
+        .menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .menu a {
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            transition: transform 0.5s;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            margin: 20px auto;
+            width: 80%;
+            position: relative;
+        }
+
+        .card {
+            width: 300px;
+            height: 400px;
+            margin: 0 10px;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card-inner:hover {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+
+        .flip-card-front {
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .flip-card-back {
+            background: #d2691e;
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .carousel {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <div>Coffee Paradise</div>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <div class="menu" id="menu">
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+    <h1>Welcome to Coffee Paradise</h1>
+    <p>Your daily dose of happiness</p>
+</header>
+
+<div class="carousel">
+    <div class="card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <h3>Espresso</h3>
+                <img src="https://images.unsplash.com/photo-1511920170033-8c3c2c3b0c9d" alt="Coffee 1" style="width:100%; border-radius: 10px;">
+            </div>
+            <div class="flip-card-back">
+                <h3>Espresso</h3>
+                <p>Rich and bold, perfect for a quick boost.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <h3>Latte</h3>
+                <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" alt="Coffee 2" style="width:100%; border-radius: 10px;">
+            </div>
+            <div class="flip-card-back">
+                <h3>Latte</h3>
+                <p>Creamy and smooth, a favorite for many.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <h3>Cappuccino</h3>
+                <img src="https://images.unsplash.com/photo-1511920170033-8c3c2c3b0c9d" alt="Coffee 3" style="width:100%; border-radius: 10px;">
+            </div>
+            <div class="flip-card-back">
+                <h3>Cappuccino</h3>
+                <p>A perfect balance of espresso and milk froth.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <h3>Mocha</h3>
+                <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" alt="Coffee 4" style="width:100%; border-radius: 10px;">
+            </div>
+            <div class="flip-card-back">
+                <h3>Mocha</h3>
+                <p>Chocolatey and delicious, a sweet treat.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        const btn = document.querySelector('.menu-btn');
+        menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        btn.style.transform = menu.style.display === 'flex' ? 'rotate(90deg)' : 'rotate(0deg)';
+    }
+</script>
+
+</body>
+</html>
