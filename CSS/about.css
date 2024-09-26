@@ -64,11 +64,12 @@ header {
     background-size: cover;
     width: 100%;
     font-size: 20px;
+    gap: 20px;
     background: #000;
     color: white;
     align-items: center;
     flex-direction: column;
-    height: 70vh;
+    height: 90vh;
 }
 .absolute {
     display: flex;
@@ -110,17 +111,10 @@ header {
     width: fit-content;
 }
 
-marquee {
-    display: flex;
-    width: 100%; /* Use flex to remove gaps */
-    white-space: nowrap; /* Prevent wrapping */
-}
-
 section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
     align-items: center;
 }
 
@@ -277,10 +271,22 @@ form {
 }
 input, textarea {
     padding: 10px;
+    outline: 0;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
+.explore{
+    background: #d29e4b;
+    padding: 10px;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    transition: 0.9s ease;
+}
+.explore:hover{
+    font-size: 20px;
+    transition: 0.9s ease;
+}
 textarea {
     resize: vertical; /* Allow vertical resize */
 }
