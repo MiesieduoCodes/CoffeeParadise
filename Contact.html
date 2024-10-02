@@ -4,8 +4,365 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoffeeParadise - Contact</title>
-    <link rel="stylesheet" href="/CSS/about.css">
 </head>
+<style>
+    * {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+.home{
+    background-image: url();
+}
+.about{
+    background-image: url('/Images/african-barista-smiling-camera-relaxing-after-workday-with-coffee-while-leaning-counter-coffee-shop.jpg');
+}
+.products{
+background-image: url('/Images/coffee-latte-with-cookies-coffiee-beans.jpg');
+}
+.contact{
+background-image: url('/Images/front-view-woman-working-as-barista.jpg');
+}
+
+.logo span {
+    color: brown;
+}
+.home,.about,.contact,.products{
+    background-position:  center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
+}
+.navbar {
+    background: rgb(167, 124, 32);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-weight: bold;
+    font-size: large;
+    color: aliceblue;
+}
+.menu a {
+    color: white; /* Ensure text color is white */
+    position: relative; /* Positioning context for the underline */
+    padding: 5px 0; /* Add some padding for better spacing */
+    text-decoration: none; /* Remove default underline */
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px; /* Thickness of the underline */
+    background: brown; /* Color of the underline */
+    transform: scaleX(0); /* Start with no underline */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.menu a:hover::after {
+    transform: scaleX(1); /* Scale the underline to full width on hover */
+}
+header h1{
+    margin-left: 80px;
+    margin-bottom: 60px;
+    font-size: 50px;
+}
+.menu-btn {
+    display: none;
+    font-size: larger;
+    background: transparent;
+    border: none;
+    color: white;
+    width: fit-content;
+}
+.menu{
+    display: flex;
+    gap: 30px;
+}
+header {
+    display: flex;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-size: 20px;
+    gap: 20px;
+    color: white;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
+}
+.absolute {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.div {
+    width: fit-content;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    position: relative; /* Positioning context for the pseudo-element */
+    overflow: hidden; /* Hide overflow for the pseudo-element */
+}
+
+.div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid rgb(158, 66, 66); /* Brown border */
+    border-radius: 10px; /* Rounded corners */
+    transform: scale(0); /* Start scaled down */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    pointer-events: none; /* Prevent interaction with the pseudo-element */
+}
+
+.div:hover::before {
+    transform: scale(1); /* Scale up to show the border */
+}
+
+.div h1 {
+    font-size: 1.5em;
+    width: fit-content;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.zoom {
+    transform: scale(1.5);
+    z-index: 1; /* Ensure the zoomed element stays above others */
+}
+
+.reviews {
+    overflow: hidden; /* Prevent overflow */
+}
+
+.marquee-item {
+    display: inline-block; /* Ensure items are in a straight line */
+    padding: 0 20px;      /* Adjust padding as needed */
+    white-space: nowrap;   /* Prevent wrapping */
+}
+footer {
+    background-color: #4b3c2a; /* Dark background color */
+    color: white; /* Text color */
+    padding: 20px; /* Padding for spacing */
+    text-align: center; /* Center align text */
+}
+
+.footer-content {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-around; /* Space sections evenly */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-bottom: 20px; /* Space between content and copyright */
+}
+
+.footer-section {
+    flex: 1; /* Equal width for sections */
+    min-width: 150px; /* Minimum width for responsiveness */
+    margin: 10px; /* Margin around sections */
+}
+
+.footer-section h4 {
+    margin-bottom: 10px; /* Space between heading and links */
+}
+
+.footer-section ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.footer-section ul li {
+    margin: 5px 0; /* Space between links */
+}
+
+.footer-section a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer-section a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.footer-bottom {
+    border-top: 1px solid #e3a663; /* Light border on top */
+    padding-top: 10px; /* Space above copyright */
+}
+.products{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 200px;
+}
+.product-circles{
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 30%;
+    text-align: center;
+    transition: transform 0.3s;
+
+}
+.header-text{
+    padding: 20px;
+    font-size: large;
+    justify-content: center;
+    display: flex;
+    text-decoration: underline;
+    text-decoration-color: brown;
+}
+.btn {
+    background: #e3a663; /* Gold color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #d29e4b; /* Darker gold on hover */
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.05); /* Grow effect on hover */
+}
+.coffee{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border: 1px black solid;
+}
+.textarea{
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+.contact-form{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+section{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-direction: column;
+    border: 3px brown solid;
+    width: fit-content;
+}
+.up-side{
+    display: flex;
+    gap: 20px;
+}
+input, textarea {
+    padding: 10px;
+    outline: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.explore{
+    background: #d29e4b;
+    padding: 10px;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    transition: 0.9s ease;
+}
+.explore:hover{
+    font-size: 20px;
+    transition: 0.9s ease;
+}
+textarea {
+    resize: vertical; /* Allow vertical resize */
+}
+
+@media (max-width: 500px) {
+    .navbar { /* Stack elements vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    .menu {
+        display: none; /* Hide the menu by default */
+        flex-direction: column;
+        gap: 20px;
+        justify-content: left;
+        width: 100%;
+/* Adjusted margin for better spacing */
+    }
+
+    .menu-btn {
+        display: flex; /* Show the menu button */
+        cursor: pointer; /* Show pointer on hover */
+    }
+
+    /* Show the menu when the button is clicked */
+    .menu.active {
+        display: flex; /* Display the menu */
+    }
+
+    .absolute {
+        flex-direction: column; /* Stack divs vertically on small screens */
+        align-items: center; /* Center align */
+    }
+
+    .div {
+        width: 90%; /* Make the divs wider on small screens */
+        margin: 10px 0; /* Adjust margin for vertical spacing */
+    }
+
+    .div h1 {
+        font-size: 1.2em; /* Adjust font size for headings */
+    }
+    header{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}
+</style>
 <body>
     <div class="navbar">
         <div class="logo">Coffee<span>Paradise</span></div>
@@ -78,6 +435,28 @@
             <p>&copy; 2024 Coffee Paradise. All rights reserved.</p>
         </div>
     </footer>
-    <script src="/Javascript/Navbar.js"></script>
+    <script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        const btn = document.querySelector('.menu-btn');
+        menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        btn.style.transform = menu.style.display === 'flex' ? 'rotate(90deg)' : 'rotate(360deg)';
+    }
+    function zoomIn(element) {
+        // Remove zoom from all elements in the marquee
+        const allDivs = document.querySelectorAll('marquee .div');
+        allDivs.forEach(div => {
+            div.classList.remove('zoom');
+        });
+
+        // Add zoom to the clicked element
+        element.querySelector('.div').classList.add('zoom');
+    }
+
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('active');
+    }
+    </script>
 </body>
 </html>
